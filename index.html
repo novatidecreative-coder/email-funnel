@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Never Miss Another Lead — Novatide Creative</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0D0D0D;
+      --cream: #F5F0E8;
+      --amber: #F5A623;
+      --amber-glow: rgba(245, 166, 35, 0.4);
+      --amber-dim: rgba(245, 166, 35, 0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--cream);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 0 20px var(--amber-dim), 0 0 40px var(--amber-dim); }
+      50%       { box-shadow: 0 0 30px var(--amber-glow), 0 0 60px var(--amber-dim); }
+    }
+
+    .hero           { animation: fadeInUp 0.8s ease-out 0s     forwards; opacity: 0; }
+    .hero-sub       { animation: fadeInUp 0.8s ease-out 0.15s  forwards; opacity: 0; }
+    .hero-cta       { animation: fadeInUp 0.8s ease-out 0.3s   forwards; opacity: 0; }
+    .video-wrap     { animation: fadeInUp 0.9s ease-out 0.4s   forwards; opacity: 0; }
+    .video-label    { animation: fadeInUp 0.6s ease-out 0.6s   forwards; opacity: 0; }
+    .benefits       { animation: fadeInUp 0.8s ease-out 0.5s   forwards; opacity: 0; }
+    .final-cta-wrap { animation: fadeInUp 0.8s ease-out 0.65s  forwards; opacity: 0; }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: clamp(24px, 5vw, 48px) clamp(20px, 5vw, 32px);
+    }
+
+    /* ----- HERO ----- */
+    .hero-section {
+      text-align: center;
+      padding: clamp(48px, 12vw, 80px) 0 clamp(56px, 10vw, 72px);
+    }
+
+    .hero-section h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      font-weight: 500;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+
+    .hero-section .subheadline {
+      font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+      color: rgba(245, 240, 232, 0.85);
+      margin-bottom: 12px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-section .hero-muted {
+      font-size: 0.875rem;
+      color: rgba(245, 240, 232, 0.6);
+      margin-bottom: 32px;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--amber);
+      background: transparent;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+      border: 2px solid var(--amber);
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--amber);
+      color: var(--bg);
+      transform: translateY(-1px);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--amber);
+      outline-offset: 4px;
+    }
+
+    .btn-below {
+      font-size: 0.875rem;
+      color: rgba(245, 240, 232, 0.6);
+      margin-top: 10px;
+    }
+
+    /* ----- VIDEO SECTION ----- */
+    .video-section {
+      padding: 0 0 clamp(56px, 10vw, 72px);
+      scroll-margin-top: 24px;
+    }
+
+    /* This mirrors Loom's own embed style exactly */
+    .video-embed-wrap {
+      position: relative;
+      padding-bottom: 53.75%;
+      height: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      animation: glowPulse 3s ease-in-out infinite;
+      margin-bottom: 16px;
+      background: #1a1a1a;
+    }
+
+    .video-embed-wrap iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 12px;
+    }
+
+    .video-label {
+      text-align: center;
+      font-size: 0.875rem;
+      color: rgba(245, 240, 232, 0.7);
+    }
+
+    .video-teaser {
+      text-align: center;
+      font-size: 0.875rem;
+      font-style: italic;
+      color: rgba(245, 240, 232, 0.8);
+      margin-top: 12px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    .video-teaser span { display: block; }
+
+    /* ----- BENEFITS ----- */
+    .benefits-section {
+      padding: clamp(32px, 6vw, 48px) 0 clamp(56px, 10vw, 72px);
+    }
+
+    .benefits-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .benefits-list {
+      list-style: none;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .benefits-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 18px;
+      font-size: 1rem;
+      color: rgba(245, 240, 232, 0.9);
+    }
+
+    .benefits-list .check {
+      flex-shrink: 0;
+      color: var(--amber);
+      font-size: 1.25rem;
+      line-height: 1.4;
+    }
+
+    /* ----- FINAL CTA ----- */
+    .final-cta-section {
+      text-align: center;
+      padding-bottom: clamp(48px, 10vw, 80px);
+    }
+
+    .final-cta-section .btn        { margin-bottom: 10px; }
+    .final-cta-section .btn-below  { margin-bottom: 16px; }
+
+    .final-cta-section .final-cta-mid {
+      font-size: 0.95rem;
+      color: rgba(245, 240, 232, 0.8);
+      margin-bottom: 8px;
+    }
+
+    .final-cta-section .small {
+      font-size: 0.875rem;
+      color: rgba(245, 240, 232, 0.6);
+    }
+
+    /* ----- FOOTER BRAND ----- */
+    .brand-footer {
+      text-align: center;
+      padding: 24px 0 40px;
+      font-size: 0.75rem;
+      color: rgba(245, 240, 232, 0.3);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- ========== HERO ========== -->
+    <section class="hero-section">
+      <h1 class="hero">See How Roofers &amp; HVAC Contractors Never Miss a Booking Again</h1>
+      <p class="subheadline hero-sub">In this 5-minute demo you'll see how our AI Receptionist automatically texts missed callers, captures their job info, and follows up for you — so you close more jobs without lifting a finger.</p>
+      <p class="hero-muted hero-sub">No fluff. No sales pitch. Just the product doing its thing.</p>
+      <a href="https://calendar.app.google/6qvewfPDB2DpQHSN6" target="_blank" rel="noopener noreferrer" class="btn hero-cta">📅 Book Your Free Call</a>
+      <p class="btn-below hero-cta">Pick a time that works for you — takes 30 seconds.</p>
+    </section>
+
+    <!-- ========== LOOM VIDEO ========== -->
+    <section class="video-section" id="video-section">
+      <div class="video-embed-wrap video-wrap">
+        <iframe
+          src="https://www.loom.com/embed/267057338e594c0f90a53fe9961c787a"
+          frameborder="0"
+          webkitallowfullscreen
+          mozallowfullscreen
+          allowfullscreen
+          allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+        </iframe>
+      </div>
+
+      <p class="video-label">⏱ 5 min watch  ·  🔒 No signup required  ·  🎯 Book more jobs without answering every call</p>
+
+      <div class="video-teaser video-label">
+        <span>→ How the AI texts your missed callers instantly — before they call a competitor</span>
+        <span>→ The exact conversation flow that captures name, job type, address &amp; availability</span>
+        <span>→ How automated follow-ups turn cold leads into booked appointments on autopilot</span>
+      </div>
+    </section>
+
+    <!-- ========== BENEFIT BULLETS ========== -->
+    <section class="benefits-section">
+      <p class="benefits-label benefits">WHAT YOU'LL WALK AWAY KNOWING</p>
+      <ul class="benefits-list">
+        <li class="benefits">
+          <span class="check">✓</span>
+          Exactly how the AI Receptionist captures leads from missed calls via SMS — 24/7, without you or your team doing anything
+        </li>
+        <li class="benefits">
+          <span class="check">✓</span>
+          Why contractors who rely on manual follow-up lose 60–70% of their leads — and how automated nurturing fixes it in under 10 minutes of setup
+        </li>
+        <li class="benefits">
+          <span class="check">✓</span>
+          What your first 30 days looks like — more booked estimates, fewer no-shows, and zero extra work on your end
+        </li>
+      </ul>
+    </section>
+
+    <!-- ========== FINAL CTA ========== -->
+    <section class="final-cta-section">
+      <a href="https://calendar.app.google/6qvewfPDB2DpQHSN6" target="_blank" rel="noopener noreferrer" class="btn final-cta-wrap">📅 Book Your Free Call</a>
+      <p class="btn-below final-cta-wrap">Pick a time that works for you — takes 30 seconds.</p>
+      <p class="final-cta-mid final-cta-wrap">Most contractors find their biggest missed-revenue gap by minute 3.</p>
+      <p class="small final-cta-wrap">Questions after watching? Just reply — you'll reach a real person at Novatide Creative.</p>
+    </section>
+
+    <!-- ========== BRAND FOOTER ========== -->
+    <div class="brand-footer">
+      Novatide Creative · AI Receptionist &amp; Website Design Services
+    </div>
+
+  </div>
+</body>
+</html>
